@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF to Excel Converter</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  
+
+  <!-- Основной контейнер -->
+  <div class="container">
+
+    <!-- Боковая панель с меню -->
+    <div class="sidebar">
+      <div class="user-icon"></div>
+      <div class="user-info">
+        <h3>Inna Innova</h3>
+        <p>thisemale@gmail.com</p>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#">Главная</a></li>
+          <li><a href="#">Все файлы</a></li>
+          <li><a href="#">Избранное</a></li>
+          <li><a href="#">Настройки</a></li>
+          <li><a href="#">Справочный центр</a></li>
+          <li><a href="#">Выход</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Центральный блок -->
+    <div class="main-content">
+
+      <!-- Заголовок PDF to Excel -->
+      <div class="pdf-to-excel">PDF to Excel</div>
+
+      <!-- Окно загрузки -->
+      <div class="upload-box">
+        <h2>Загрузить файл</h2>
+        <button>Выбрать файл</button>
+      </div>
+
+      <!-- Список файлов -->
+      <div class="file-list">
+        <ul>
+          <li>
+            <div>
+              <a href="#">Test-Processing.pdf</a>
+              <span>123.4 kB</span>
+            </div>
+            <div>
+              <a href="#">Скачать</a>
+              <button>Обработать</button>
+            </div>
+          </li>
+          <li>
+            <div>
+              <a href="#">Test-Processing.pdf</a>
+              <span>123.4 kB</span>
+            </div>
+            <div>
+              <a href="#">Скачать</a>
+              <button>Обработать</button>
+            </div>
+          </li>
+          <li>
+            <div>
+              <a href="#">Test-Processing.pdf</a>
+              <span>123.4 kB</span>
+            </div>
+            <div>
+              <a href="#">Скачать</a>
+              <button>Обработать</button>
+            </div>
+          </li>
+          <li>
+            <div>
+              <a href="#">Test-Processing.pdf</a>
+              <span>123.4 kB</span>
+            </div>
+            <div>
+              <a href="#">Скачать</a>
+              <button>Обработать</button>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+
+      <!-- Статистика с графиком -->
+      <div class="statistics">
+        <p>Всего обработано: 10 файлов</p>
+        <p>Общий размер: 1.2 GB</p>
+<!-- График -->
+        <div class="chart-container"><canvas id="fileChart"></canvas>
+            <button class="download-btn">Скачать график</button>
+          </div>
+        </div>
+  
+      </div>
+  
+      <!-- История загрузок -->
+      <div class="history">
+        <h3>История загрузок</h3>
+  
+        <!-- Сегодня -->
+        <p>Сегодня</p>
+        <ul>
+          <li><a href="#">file1.pdf<span class="file-size">500 kB</span></a></li>
+          <li><a href="#">file2.pdf<span class="file-size">600 kB</span></a></li>
+        </ul>
+  
+        <!-- Вчера -->
+        <p>Вчера</p>
+        <ul>
+          <li><a href="#">file3.pdf<span class="file-size">450 kB</span></a></li>
+          <li><a href="#">file4.pdf<span class="file-size">700 kB</span></a></li>
+        </ul>
+      </div>
+  
+    </div>
+  
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      // Создание графика
+      const ctx = document.getElementById('fileChart').getContext('2d');
+      const fileChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'],
+          datasets: [{
+            label: 'Количество обработанных файлов',
+            data: [12, 19, 3, 5, 2, 3, 7],
+            borderColor: '#4CAF50',
+            backgroundColor: 'rgba(76, 175, 80, 0.2)',
+            borderWidth: 2,tension: 0.4
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              position: 'top',
+            },
+          },
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+    </script>
+  
+  </body>
+  </html>
